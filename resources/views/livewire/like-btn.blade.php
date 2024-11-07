@@ -5,5 +5,6 @@
     <button @click="liked = !liked; $wire.toggleLike()">
         <span x-text="liked ? 'Unlike' : 'Like'"></span>
     </button>
-    <span> {{ $post->likes_count }} Likes </span>
+    {{-- wire:poll.Ns aggiornamento del campo dopo N secondi, non aggiorna se non ci sono cambiamenti --}}
+    <span wire:poll.3s> {{ $post->likes_count }} Likes </span>
 </div>
