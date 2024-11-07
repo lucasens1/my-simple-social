@@ -19,6 +19,6 @@ class Post extends Model
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes');
+        return $this->belongsToMany(User::class, 'likes'); /* Specifica al $table = 'likes' di Likes.php */
     }
 }
