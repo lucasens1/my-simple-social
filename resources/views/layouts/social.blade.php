@@ -18,8 +18,25 @@
 </head>
 
 <body>
-    <nav class="flex justify-center items-center p-2 align-middle w-full bg-red-600 min-h-16 text-white">
-        <p>Light Social Welcome</p>
+    <nav class="flex justify-center items-center p-2 align-middle w-full bg-red-800 min-h-16 text-white">
+        <ul class="flex gap-10 max-sm:flex-col">
+            <li>Light Social</li>
+            <li>
+                @auth
+                    <a href="{{ route('posts.index') }}">Homepage</a>
+                </li>
+            @else
+                <a href="{{ route('login') }}">Login</a>
+            @endauth
+
+            <li>
+                @auth
+                    <a href="{{ route('logout') }}">Logout</a>
+                @else
+                    <a href="{{ route('register') }}"> Registrati </a>
+                @endauth
+            </li>
+        </ul>
     </nav>
 
     <main class="p-2">
