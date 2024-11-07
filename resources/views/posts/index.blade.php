@@ -21,7 +21,7 @@
                     <div class="shadow-xl border-2 border-orange-800 p-2 min-w-full">
                         <h2>{{ $post->content }}</h2>
                         <small>@ {{ $post->user->name }}</small>
-                        @livewire('like-btn', ['post' => $post], key($post->id))
+                        @livewire('like-btn', ['post' => $post])
                     </div>
                 @endforeach
         @endif

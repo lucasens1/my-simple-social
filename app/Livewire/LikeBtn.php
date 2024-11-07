@@ -11,7 +11,7 @@ class LikeBtn extends Component
 {
     // Post e Stato di default
     public $post;
-    public $liked = false;
+    public $liked;
 
     public function mount(Post $post)
     {
@@ -29,8 +29,11 @@ class LikeBtn extends Component
     /* Al Click sulla Freccia Su subentra questa funzione */
     public function toggleLike()
     {
-        $this->liked ? $this->removeLike() : $this->addLike();
-
+        if ($this->liked) {
+            $this->removeLike();
+        } else {
+            $this->addLike();
+        }
         $this->liked = !$this->liked;
     }
 
