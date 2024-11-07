@@ -20,7 +20,10 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {}
+    public function create()
+    {
+        return view('posts.create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -29,8 +32,12 @@ class PostController extends Controller
     {
         // Salviamo il post
         $request->validate(['content' => 'required']);
+        /* dd($request); */
 
-        Post::create($request->only('content', 'user_id'));
+        Post::create([
+            'content' => $request->input('content'),
+            'user_id' => Auth::id(),
+        ]);
 
         return redirect()->route('posts.index');
     }
